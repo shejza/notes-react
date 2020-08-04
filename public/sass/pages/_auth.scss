@@ -1,0 +1,99 @@
+.login {
+    display: flex;
+    height: 100vh;
+
+    @include respond(phone) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    &__left {
+        max-width: 500px;
+        flex: 0 0 40%;
+        background-color: $color-purple;
+
+        @media only screen and (max-width: 63em) {
+            display: none;
+        }
+
+        h4 {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 3.6rem;
+            color: $color-white;
+            text-align: center;
+            margin-bottom: 7rem;
+            margin-top: 15.6rem;
+        }
+
+        .line {
+            max-width: 240px;
+            width: 100%;
+            border-top: 1px solid $color-white;
+            margin-bottom: 36px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &__right {
+        width: 100%;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 16rem;
+
+        @include respond(phone) {
+            margin-top: 3.6rem;
+        }
+
+        .login__header {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 2.4rem;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .wrapper-of-no-account {
+            display: flex;
+            margin-top: 1.6rem;
+
+            h4 {
+                font-family: "Roboto";
+                font-style: normal;
+                font-weight: normal;
+                font-size: 1.6rem;
+                line-height: 19px;
+                color: $color-blackish;
+            }
+
+            .btn--link-no-outline {
+                text-decoration: none;
+                font-family: "Roboto";
+                font-style: normal;
+                font-size: 1.6rem;
+                font-weight: 500;
+                color: $color-purple;
+                margin-left: 8px;
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex: 1;
+        flex: 1;
+        overflow: auto;
+        width: 100%;
+    }
+}

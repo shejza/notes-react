@@ -1,0 +1,36 @@
+.btn {
+
+    &,
+    &:link,
+    &:visited {
+        text-decoration: none;
+        padding: 1rem 3.6rem;
+        display: inline-block;
+        border-radius: 4px;
+        transition: all .2s;
+        position: relative;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 19px;
+        cursor: pointer;
+        font: 500 1.6rem 'Roboto';
+        min-width: 12rem;
+        width: 100%;
+
+        @include respond(phone) {
+            font: 500 12px 'Roboto';
+        }
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
+
+    &--primary {
+        border: 1px solid $color-purple;
+        color: $color-white;
+        background: $color-purple;
+    }
+}

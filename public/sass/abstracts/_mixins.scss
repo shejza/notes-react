@@ -1,0 +1,75 @@
+//MEDIA QUERY MANAGER
+/*
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint==extra-mini-phone {
+        @media only screen and (max-width: 23.9em) {
+            @content
+        }
+
+        ; //600px
+    }
+
+    @if $breakpoint==mini-phone {
+        @media only screen and (max-width: 32.5em) {
+            @content
+        }
+
+        ; //600px
+    }
+
+    @if $breakpoint==phone {
+        @media only screen and (max-width: 37.5em) {
+            @content
+        }
+
+        ; //600px
+    }
+
+    @if $breakpoint==mini-tab {
+        @media only screen and (max-width: 48em) {
+            @content
+        }
+
+        ; //768px
+    }
+
+    @if $breakpoint==tab-port {
+        @media only screen and (max-width: 53em) {
+            @content
+        }
+
+        ; //850px
+    }
+
+    @if $breakpoint==max-tab {
+        @media only screen and (max-width: 61.875em) {
+            @content
+        }
+
+        ; //990px
+    }
+
+    @if $breakpoint==tab-land-mini {
+        @media only screen and (max-width: 64em) {
+            @content
+        }
+
+        ; //1024px
+    }
+
+    @if $breakpoint==tab-land {
+        @media only screen and (max-width: 80em) {
+            @content
+        }
+
+        ; //1200px
+    }
+
+}
+
+@mixin fontStyle {
+    font-style: normal;
+    font-weight: normal;
+}

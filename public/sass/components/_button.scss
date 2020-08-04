@@ -33,4 +33,14 @@
         color: $color-white;
         background: $color-purple;
     }
+
+    &--no--outline {
+        background-color: transparent;
+        border: none;
+        color: $color-dark-blue;
+        width: auto;
+        margin: 0;
+        padding: 0;
+        margin-top: -10px;
+    }
 }

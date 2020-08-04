@@ -1,0 +1,163 @@
+.content {
+    margin-top: 6rem;
+
+    .btn--primary {
+        max-width: 200px;
+    }
+
+    .card {
+        border: 1px solid $color-gray;
+        width: 100%;
+        padding: 2.4rem;
+        margin-top: 4rem;
+        border-radius: 4px;
+    }
+
+    .wrapper__of__three {
+        display: flex;
+
+        .form__group {
+            width: 100%;
+        }
+    }
+
+    .u-margin-right-24 {
+        margin-right: 2.4rem;
+    }
+
+    .button__float__right {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #menuToggle {
+        display: none;
+    }
+
+    .collapsed-card {
+        overflow: hidden;
+        display: none;
+        height: 0;
+        transition: all 0.2s;
+        list-style: none;
+    }
+
+    #menuToggle:checked~.collapsed-card {
+        width: 100%;
+        height: 100%;
+        display: block;
+        padding: 2.4rem;
+        margin-top: 4rem;
+    }
+
+    .filter__wrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 60px;
+        margin-bottom: 36px;
+
+        h4 {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            color: $color-blackish;
+            margin-right: 8px;
+        }
+
+        .wrapper__of__inputs {
+            display: flex;
+
+            input {
+                max-width: 120px;
+                margin: 0;
+                margin-right: 16px;
+            }
+        }
+
+
+    }
+
+    .card__small {
+        border: 1px solid $color-gray;
+        border-radius: 4px;
+        padding: 2.4rem;
+        margin-bottom: 2.4rem;
+
+        &__header {
+            display: flex;
+            justify-content: space-between;
+
+            h4 {
+                font-family: "Roboto";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                color: $color-blackish;
+            }
+
+            .mdi {
+                font-size: 24px;
+                color: #858688;
+
+            }
+        }
+    }
+
+    .btn__icon {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin-left: 8px;
+
+        .mdi {
+            cursor: pointer;
+        }
+    }
+
+    .card__small__desc {
+        margin-top: 8px;
+
+        h4 {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 19px;
+            color: $color-blackish;
+        }
+    }
+
+    .font__date {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        color: $color-blackish;
+        margin-top: 16px;
+    }
+
+    .wrapper__time__btn {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            max-width: 160px;
+        }
+    }
+}
+
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}

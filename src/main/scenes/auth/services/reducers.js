@@ -5,8 +5,6 @@ export function formValues(state = {}, action) {
         formValues: [...state.formValues, action.formValues],
       };
 
-    case "LOGIN":
-      return { user: action.user };
     default:
       return state;
   }

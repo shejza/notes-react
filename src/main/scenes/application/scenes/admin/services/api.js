@@ -1,10 +1,22 @@
 import { headers } from "../../../../../../helpers/headers";
 import { apiUrl } from "../../../../../../helpers/api-url";
 import { handleResponse } from "../../../../../../helpers/handle-response";
+import download from "js-file-download";
 
 export const apiCalls = {
+  getNotes,
   createNote,
+  deleteNote,
 };
+
+function getNotes() {
+  const requestUrl = `${apiUrl}notes`;
+  const requestOptions = {
+    method: "GET",
+    headers,
+  };
+  return fetch(requestUrl, requestOptions).then((response) => response.json());
+}
 
 function createNote(formValues) {
   const formData = new FormData();
@@ -17,7 +29,6 @@ function createNote(formValues) {
     formData.append(`descriptions[${index}]`, item)
   );
 
-  //   const requestUrl = `${apiUrl}notes`;
   const requestOptions = {
     method: "POST",
     headers,
@@ -27,4 +38,14 @@ function createNote(formValues) {
   return fetch("http://127.0.0.1:8000/notes", requestOptions).then((response) =>
     response.json()
   );
+}
+
+function deleteNote(id) {
+  const requestUrl = `${apiUrl}notes/${id}`;
+
+  const requestOptions = {
+    method: "DELETE",
+    headers,
+  };
+  return fetch(requestUrl, requestOptions).then(handleResponse);
 }

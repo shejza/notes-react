@@ -1,8 +1,23 @@
 import { apiCalls } from "./api";
 
 export const actions = {
+  getAll,
   create,
+  deleteNote,
 };
+
+function getAll() {
+  return (dispatch) => {
+    apiCalls.getNotes().then((notes) => dispatch(success(notes)));
+  };
+
+  function success(notes) {
+    return {
+      type: "NOTES_GETALL",
+      notes,
+    };
+  }
+}
 
 function create(formValues) {
   return (dispatch) => {
@@ -18,3 +33,20 @@ function create(formValues) {
     };
   }
 }
+
+function deleteNote(id) {
+  return (dispatch) => {
+    apiCalls.deleteNote(id).then(() => {
+      dispatch(success(id));
+    });
+  };
+
+  function success(id) {
+    return {
+      type: "DELETE_NOTE",
+      id,
+    };
+  }
+}
+
+

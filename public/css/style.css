@@ -2880,8 +2880,9 @@ body {
   .content .wrapper__time__btn {
     display: flex;
     justify-content: space-between; }
-    .content .wrapper__time__btn button {
-      max-width: 160px; }
+    .content .wrapper__time__btn a {
+      max-width: 160px;
+      text-align: center; }
 
 .alert {
   position: relative;

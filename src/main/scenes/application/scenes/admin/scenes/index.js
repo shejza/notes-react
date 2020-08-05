@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { actions } from "../services/actions";
+import Cards from "./cards";
 
 export default function Admin() {
   const dispatch = useDispatch();
@@ -74,7 +75,7 @@ export default function Admin() {
       )}
       <div className="content">
         <input type="checkbox" id="menuToggle" />
-        <label className="btn btn--primary" for="menuToggle">
+        <label className="btn btn--primary" htmlFor="menuToggle">
           Add new Notes +
         </label>
 
@@ -90,7 +91,7 @@ export default function Admin() {
                   name="title"
                   onChange={handleChange}
                 />
-                <label for="title" className="form__label">
+                <label htmlFor="title" className="form__label">
                   Title
                 </label>
               </div>
@@ -104,7 +105,7 @@ export default function Admin() {
                   name="date"
                   onChange={handleChange}
                 />
-                <label for="date" className="form__label">
+                <label htmlFor="date" className="form__label">
                   Date
                 </label>
               </div>
@@ -118,7 +119,7 @@ export default function Admin() {
                   name="total_time"
                   onChange={handleChange}
                 />
-                <label for="total_time" className="form__label">
+                <label htmlFor="total_time" className="form__label">
                   Total time
                 </label>
               </div>
@@ -134,7 +135,7 @@ export default function Admin() {
                   name={"description"}
                   onChange={handleChangeArray}
                 />
-                <label for="description" className="form__label">
+                <label htmlFor="description" className="form__label">
                   Description
                 </label>
               </div>
@@ -153,92 +154,7 @@ export default function Admin() {
           </form>
         </div>
 
-        <div className="filter__wrapper">
-          <h4>Filter entries by date:</h4>
-          <div className="wrapper__of__inputs">
-            <div className="form__group">
-              <input
-                type="text"
-                className="form__input"
-                id="from"
-                placeholder="from"
-              />
-            </div>
-            <div className="form__group">
-              <input
-                type="text"
-                className="form__input"
-                id="to"
-                placeholder="to"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-6">
-            <div className="card__small">
-              <div className="card__small__header">
-                <h4>Camping</h4>
-                <div>
-                  <button className="btn__icon">
-                    <span className="mdi mdi-pencil"></span>
-                  </button>
-                  <button className="btn__icon">
-                    {" "}
-                    <span className="mdi mdi-delete-outline"></span>
-                  </button>
-                </div>
-              </div>
-              <div className="card__small__desc">
-                <h4>- Take sleeping bag</h4>
-                <h4>- Take sleeping bag</h4>
-                <h4>- Take sleeping bag</h4>
-              </div>
-
-              <h4 className="font__date">
-                <b>Date:</b> 14.10.2020
-              </h4>
-              <div className="wrapper__time__btn">
-                <h4 className="font__date">
-                  <b>Total time:</b> 48h
-                </h4>
-                <button className="btn btn--primary">Export CSV</button>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="card__small">
-              <div className="card__small__header">
-                <h4>Camping</h4>
-                <div>
-                  <button className="btn__icon">
-                    <span className="mdi mdi-pencil"></span>
-                  </button>
-                  <button className="btn__icon">
-                    {" "}
-                    <span className="mdi mdi-delete-outline"></span>
-                  </button>
-                </div>
-              </div>
-              <div className="card__small__desc">
-                <h4>- Take sleeping bag</h4>
-                <h4>- Take sleeping bag</h4>
-                <h4>- Take sleeping bag</h4>
-              </div>
-
-              <h4 className="font__date">
-                <b>Date:</b> 14.10.2020
-              </h4>
-              <div className="wrapper__time__btn">
-                <h4 className="font__date">
-                  <b>Total time:</b> 48h
-                </h4>
-                <button className="btn btn--primary">Export CSV</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Cards />
       </div>
     </React.Fragment>
   );

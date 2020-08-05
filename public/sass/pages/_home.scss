@@ -142,8 +142,9 @@
         display: flex;
         justify-content: space-between;
 
-        button {
+        a {
             max-width: 160px;
+            text-align: center;
         }
     }
 }

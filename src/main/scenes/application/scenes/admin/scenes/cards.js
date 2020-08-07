@@ -5,35 +5,49 @@ import { CSVLink } from "react-csv";
 import Moment from "moment";
 import EditForm from "../components/edit-form";
 
-export default function Cards() {
+export default function Cards({ notes }) {
   const dispatch = useDispatch();
-  const { notes } = useSelector((state) => state.notes);
-  const [notesList, setNotes] = useState([]);
 
   let [formvisibility, setFormVisibility] = useState(true);
-  useEffect(() => {
-    dispatch(actions.getAll());
-  }, [dispatch]);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [res, setSearchResults] = useState([]);
+  const notesLista = !!notes ? notes : [];
+
+  const handleStartDate = (event) => {
+    setStartDate(event.target.value);
+  };
+  const handleEndDate = (event) => {
+    setEndDate(event.target.value);
+  };
+
+  const makeDate = (date) => {
+    return Date.parse(Moment(date).format("DD.MM.YYYY"));
+  };
+
+  const results = notesLista.filter(
+    (note) =>
+      makeDate(note.date) >= makeDate(startDate) &&
+      makeDate(note.date) <= makeDate(endDate)
+  );
 
   useEffect(() => {
-    if (!!notes) {
-      setNotes(notes);
-    }
+    setSearchResults(results);
   }, [notes]);
-
   const deleteNote = (noteID) => {
     dispatch(actions.deleteNote(noteID));
   };
 
   const editNote = (id) => {
-    console.log("edit");
     setFormVisibility((prevShownComments) => ({
       ...prevShownComments,
       [id]: !prevShownComments[id],
     }));
   };
 
-  const renderedNotes = notesList.map((note, index) => (
+  let _results = !!startDate && !!endDate ? results : notesLista;
+
+  const renderedNotes = _results.map((note, index) => (
     <div className="col-md-6" key={index}>
       {formvisibility[note.id] ? (
         <EditForm
@@ -109,6 +123,8 @@ export default function Cards() {
                 className="form__input"
                 id="from"
                 placeholder="from"
+                value={startDate}
+                onChange={handleStartDate}
               />
             </div>
             <div className="form__group">
@@ -117,6 +133,8 @@ export default function Cards() {
                 className="form__input"
                 id="to"
                 placeholder="to"
+                value={endDate}
+                onChange={handleEndDate}
               />
             </div>
           </div>

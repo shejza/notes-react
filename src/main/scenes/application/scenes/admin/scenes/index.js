@@ -1,10 +1,22 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../services/actions";
 import Cards from "./cards";
 import Moment from "moment";
+
 export default function Admin() {
   const dispatch = useDispatch();
+  const { notes } = useSelector((state) => state.notes);
+  const [notesList, setNotes] = useState([]);
+  useEffect(() => {
+    dispatch(actions.getAll());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!!notes) {
+      setNotes(notes);
+    }
+  }, [notes]);
 
   const formDefaultValues = {
     title: "",
@@ -65,21 +77,6 @@ export default function Admin() {
       [name]: [...prevState[name], ""],
     }));
   };
-
-  let dates = [];
-
-  let startDate = "02.01.2020";
-  let endDate = "01.03.2020";
-  while (
-    Moment(startDate, "DD.MM.YYYY").valueOf() <=
-    Moment(endDate, "DD.MM.YYYY").valueOf()
-  ) {
-    dates.push(Moment(startDate, "DD.MM.YYYY").format("DD.MM.YYYY"));
-    startDate = Moment(startDate, "DD.MM.YYYY")
-      .add(1, "days")
-      .format("DD.MM.YYYY");
-  }
-  console.log(dates);
 
   return (
     <React.Fragment>
@@ -169,7 +166,7 @@ export default function Admin() {
           </form>
         </div>
 
-        <Cards />
+        <Cards notes={notesList} />
       </div>
     </React.Fragment>
   );

@@ -43,7 +43,7 @@ export default function EditUserForm({ user, userId }) {
         name="name"
         onChange={handleChange}
       /></td>
-<td>
+     <td>
       <input
         type="text"
         className="form__input"
@@ -52,7 +52,7 @@ export default function EditUserForm({ user, userId }) {
         name="email"
         onChange={handleChange}
       />
-</td>
+     </td>
       <td>
         <button
           className="btn btn--primary"

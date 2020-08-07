@@ -29,7 +29,7 @@ function login(formValues) {
         localStorage.setItem("user", JSON.stringify(response.data));
 
         dispatch(success());
-        window.location.href = "/app/notes";
+        window.location.href = "/app";
       },
       (error) => {}
     );

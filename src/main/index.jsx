@@ -7,16 +7,19 @@ import {
 import Register from './scenes/auth/scenes/Register';
 import Index from './scenes/application';
 import ProtectedRoute from './components/ProtectedRoutes';
+import Users from './scenes/application/scenes/admin/scenes/users';
 
 export default function index() {
   return (
       <React.Fragment>
-        <Router>
+        <Router> 
           <Switch>
         
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <ProtectedRoute path="(|/app/*)" component={Index} />
+             
+            <ProtectedRoute path="(/*)" component={Index} />
+           
             <Route path="/" exact component={Login}/>
           </Switch>
         </Router>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { actions } from "../services/actions";
 import Cards from "./cards";
-
+import Moment from "moment";
 export default function Admin() {
   const dispatch = useDispatch();
 
@@ -66,6 +66,21 @@ export default function Admin() {
     }));
   };
 
+  let dates = [];
+
+  let startDate = "02.01.2020";
+  let endDate = "01.03.2020";
+  while (
+    Moment(startDate, "DD.MM.YYYY").valueOf() <=
+    Moment(endDate, "DD.MM.YYYY").valueOf()
+  ) {
+    dates.push(Moment(startDate, "DD.MM.YYYY").format("DD.MM.YYYY"));
+    startDate = Moment(startDate, "DD.MM.YYYY")
+      .add(1, "days")
+      .format("DD.MM.YYYY");
+  }
+  console.log(dates);
+
   return (
     <React.Fragment>
       {visibility && (
@@ -126,7 +141,7 @@ export default function Admin() {
             </div>
 
             {formValuesArray.description.map((item, index) => (
-              <div className="form__group">
+              <div className="form__group" key={index}>
                 <input
                   type="text"
                   className="form__input"

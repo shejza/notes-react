@@ -2700,6 +2700,11 @@ body {
   color: #ffffff;
   background: #93B5E1; }
 
+.btn--secondary {
+  border: 1px solid #DFDFDF;
+  color: #2F2C2C;
+  background: #DFDFDF; }
+
 .btn--no--outline {
   background-color: transparent;
   border: none;
@@ -2883,6 +2888,68 @@ body {
     .content .wrapper__time__btn a {
       max-width: 160px;
       text-align: center; }
+  .content .edit-form {
+    border-color: #93B5E1; }
+    .content .edit-form .btn--secondary {
+      max-width: 100px;
+      margin-right: 8px; }
+    .content .edit-form .btn--primary {
+      max-width: 180px; }
+
+.users {
+  margin-top: 6rem; }
+  .users__table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 4px; }
+    .users__table input {
+      margin: 0; }
+    .users__table td,
+    .users__table th {
+      text-align: left; }
+    .users__table th,
+    .users__table td {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      color: #2F2C2C;
+      border: 1px solid #DFDFDF;
+      padding: 8px; }
+    .users__table .column__actions {
+      width: 100px; }
+    .users__table td {
+      font-weight: normal; }
+  .users .mdi {
+    font-size: 24px;
+    color: #858688; }
+  .users .btn__icon {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 8px; }
+    .users .btn__icon .mdi {
+      cursor: pointer; }
+  .users .edit-form-row {
+    display: flex; }
+  .users #menuToggle {
+    display: none; }
+  .users .collapsed-card-user {
+    overflow: hidden;
+    display: none;
+    height: 0;
+    transition: all 0.2s;
+    list-style: none; }
+  .users #menuToggle:checked ~ .collapsed-card-user {
+    width: 100%;
+    height: 100%;
+    display: block; }
+    .users #menuToggle:checked ~ .collapsed-card-user input {
+      margin-right: 8px; }
+  .users .btn--add--user {
+    max-width: 200px;
+    margin-bottom: 2.4rem; }
 
 .alert {
   position: relative;
@@ -2895,3 +2962,6 @@ body {
   color: #155724;
   background-color: #d4edda;
   border-color: #c3e6cb; }
+
+button {
+  outline: none; }

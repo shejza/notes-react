@@ -34,6 +34,12 @@
         background: $color-purple;
     }
 
+    &--secondary {
+        border: 1px solid $color-gray;
+        color: $color-blackish;
+        background: $color-gray;
+    }
+
     &--no--outline {
         background-color: transparent;
         border: none;

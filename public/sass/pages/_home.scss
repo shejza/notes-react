@@ -5,6 +5,12 @@
         max-width: 200px;
     }
 
+    .row {
+        .col-md-6 {
+            margin-bottom: 2.4rem;
+        }
+    }
+
     .card {
         border: 1px solid $color-gray;
         width: 100%;
@@ -83,6 +89,8 @@
         border-radius: 4px;
         padding: 2.4rem;
         margin-bottom: 2.4rem;
+        height: 100%;
+        position: relative;
 
         &__header {
             display: flex;
@@ -101,6 +109,12 @@
                 color: #858688;
 
             }
+        }
+
+        .btn--primary {
+            position: absolute;
+            right: 2.4rem;
+            bottom: 2.4rem;
         }
     }
 
@@ -151,6 +165,7 @@
     .edit-form {
         border-color: $color-purple;
 
+
         .btn--secondary {
             max-width: 100px;
             margin-right: 8px;
@@ -158,6 +173,10 @@
 
         .btn--primary {
             max-width: 180px;
+            position: relative;
+            bottom: unset;
+            right: unset;
+
         }
     }
 
@@ -258,6 +277,13 @@
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: .25rem;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: $color-blackish;
+    margin-right: 8px;
+
 }
 
 .alert-success {

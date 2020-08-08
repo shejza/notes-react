@@ -86,8 +86,6 @@ function getAllUsers() {
 function createUser(formValues) {
   return (dispatch) => {
     apiCalls.createUser(formValues).then((data) => {
-      localStorage.setItem("user", JSON.stringify(data));
-
       dispatch(success());
       window.location.reload();
     });

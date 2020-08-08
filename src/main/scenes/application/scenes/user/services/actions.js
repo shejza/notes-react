@@ -24,7 +24,6 @@ function create(formValues) {
   return (dispatch) => {
     apiCalls.createNote(formValues).then((data) => {
       dispatch(success(data));
-      window.location.reload();
     });
   };
 

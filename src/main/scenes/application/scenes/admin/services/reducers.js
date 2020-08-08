@@ -1,5 +1,3 @@
-import { act } from "react-dom/test-utils";
-
 export function notes(state = {}, action) {
   switch (action.type) {
     case "NOTES_GETALL":
@@ -8,7 +6,7 @@ export function notes(state = {}, action) {
       };
     case "NOTE_ADD":
       return {
-        notes: action.notes,
+        notes: [...state.notes, action.note],
       };
     case "NOTE_UPDATE":
       return {

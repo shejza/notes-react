@@ -97,3 +97,26 @@
         width: 100%;
     }
 }
+
+.alert__validation {
+    position: absolute !important;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    button {
+        float: right;
+        background: transparent;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+}
+
+.alert--danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    width: 100%;
+    max-width: 500px;
+}

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { actions } from "../services/actions";
+import Alert from "../../../components/Alert";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -10,8 +11,17 @@ export default function Login() {
     email: "",
     password: "",
   };
+
+  const errors = {
+    email: false,
+    password: false,
+    emailNotValid: false,
+  };
   const [formValues, setFormValues] = useState(formDefaultValues);
+  const [errorsValues, setErrorsValues] = useState(errors);
   const { email, password } = formValues;
+
+  const { error } = useSelector((state) => state.auth);
 
   function handleChange(e) {
     const target = e.target;
@@ -23,12 +33,54 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formValues.email) {
+      setErrorsValues((prevState) => ({
+        ...prevState,
+        email: true,
+      }));
+    }
 
+    if (!formValues.password) {
+      setErrorsValues((prevState) => ({
+        ...prevState,
+        password: true,
+      }));
+    }
+
+    if (!error) {
+      setErrorsValues((prevState) => ({
+        ...prevState,
+        emailNotValid: true,
+      }));
+    }
     dispatch(actions.login(formValues));
   };
 
+  const closeAlert = () => {
+    setErrorsValues((prevState) => ({
+      ...prevState,
+      email: false,
+      password: false,
+      emailNotValid: false,
+    }));
+  };
   return (
     <React.Fragment>
+      {!!errorsValues.email && (
+        <Alert message="Please fill out the email field!" close={closeAlert} />
+      )}
+      {!!errorsValues.password && (
+        <Alert
+          message="Please fill out the password field!"
+          close={closeAlert}
+        />
+      )}
+
+      {!!error
+        ? !!errorsValues.emailNotValid && (
+            <Alert message="User credentials are wrong!" close={closeAlert} />
+          )
+        : null}
       <div className="login">
         <section className="login__left">
           <div className="header">
@@ -54,6 +106,7 @@ export default function Login() {
                   value={email}
                   name={"email"}
                   onChange={handleChange}
+                  required
                 />
                 <label for="email" className="form__label">
                   Email
@@ -69,6 +122,7 @@ export default function Login() {
                   value={password}
                   name={"password"}
                   onChange={handleChange}
+                  required
                 />
                 <label for="password" className="form__label">
                   Password

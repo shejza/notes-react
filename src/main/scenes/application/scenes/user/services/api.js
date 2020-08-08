@@ -1,7 +1,6 @@
 import { headers } from "../../../../../../helpers/headers";
 import { apiUrl } from "../../../../../../helpers/api-url";
 import { handleResponse } from "../../../../../../helpers/handle-response";
-import download from "js-file-download";
 
 export const apiCalls = {
   getNotes,

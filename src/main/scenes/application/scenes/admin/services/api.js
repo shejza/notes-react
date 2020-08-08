@@ -1,7 +1,6 @@
 import { headers } from "../../../../../../helpers/headers";
 import { apiUrl } from "../../../../../../helpers/api-url";
 import { handleResponse } from "../../../../../../helpers/handle-response";
-import download from "js-file-download";
 
 export const apiCalls = {
   getNotes,
@@ -33,16 +32,14 @@ function createNote(formValues) {
   formValues.descriptions.map((item, index) =>
     formData.append(`descriptions[${index}]`, item)
   );
-
+  const requestUrl = `${apiUrl}notes`;
   const requestOptions = {
     method: "POST",
     headers,
     body: formData,
   };
 
-  return fetch("http://127.0.0.1:8000/notes", requestOptions).then((response) =>
-    response.json()
-  );
+  return fetch(requestUrl, requestOptions).then((response) => response.json());
 }
 
 function updateNote(formValues, noteID) {

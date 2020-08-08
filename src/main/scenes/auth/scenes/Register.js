@@ -54,6 +54,7 @@ export default function Register() {
                   value={name}
                   name={"name"}
                   onChange={handleChange}
+                  required
                 />
                 <label htmlFor="name" className="form__label">
                   Name
@@ -69,6 +70,7 @@ export default function Register() {
                   value={email}
                   name={"email"}
                   onChange={handleChange}
+                  required
                 />
                 <label htmlFor="email" className="form__label">
                   Email
@@ -84,6 +86,7 @@ export default function Register() {
                   value={password}
                   name={"password"}
                   onChange={handleChange}
+                  required
                 />
                 <label htmlFor="password" className="form__label">
                   Password

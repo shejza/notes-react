@@ -1,8 +1,12 @@
-export function formValues(state = {}, action) {
+export function auth(state = {}, action) {
   switch (action.type) {
     case "REGISTER_SUCCESS":
       return {
-        formValues: [...state.formValues, action.formValues],
+        registered: true,
+      };
+    case "LOGIN_ERROR":
+      return {
+        error: action.error,
       };
 
     default:

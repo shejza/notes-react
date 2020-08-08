@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../services/actions";
 import Cards from "./cards";
-import Moment from "moment";
 
 export default function Admin() {
   const dispatch = useDispatch();
@@ -61,13 +60,11 @@ export default function Admin() {
       ...formValues,
       descriptions,
     };
-
-    dispatch(actions.create(_formValues));
-    window.location.reload();
     setVisibility(true);
     setTimeout(() => {
       setVisibility(false);
     }, 3000);
+    dispatch(actions.create(_formValues));
   };
 
   const addElement = (name, e) => {

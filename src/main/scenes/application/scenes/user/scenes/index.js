@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../services/actions";
 import Cards from "./cards";
-import Moment from "moment";
 
 export default function User() {
   const dispatch = useDispatch();

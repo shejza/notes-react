@@ -7,7 +7,6 @@ import {
 import Register from './scenes/auth/scenes/Register';
 import Index from './scenes/application';
 import ProtectedRoute from './components/ProtectedRoutes';
-import Users from './scenes/application/scenes/admin/scenes/users';
 
 export default function index() {
   return (

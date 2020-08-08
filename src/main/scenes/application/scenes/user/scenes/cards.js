@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { actions } from "../services/actions";
 import { CSVLink } from "react-csv";
 import Moment from "moment";
@@ -22,7 +22,7 @@ export default function Cards({ notes }) {
   };
 
   const makeDate = (date) => {
-    return Date.parse(Moment(date).format("DD.MM.YYYY"));
+    return Date.parse(date);
   };
 
   const results = notesLista.filter(
@@ -113,7 +113,7 @@ export default function Cards({ notes }) {
                 type="text"
                 className="form__input"
                 id="from"
-                placeholder="from"
+                placeholder="10.14.2020"
                 value={startDate}
                 onChange={handleStartDate}
               />
@@ -123,7 +123,7 @@ export default function Cards({ notes }) {
                 type="text"
                 className="form__input"
                 id="to"
-                placeholder="to"
+                placeholder="11.23.2024"
                 value={endDate}
                 onChange={handleEndDate}
               />

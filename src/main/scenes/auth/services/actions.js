@@ -31,13 +31,21 @@ function login(formValues) {
         dispatch(success());
         window.location.href = "/app";
       },
-      (error) => {}
+      (error) => {
+        dispatch(failure("error_credentials"));
+      }
     );
   };
 
   function success() {
     return {
       type: "LOGIN_SUCCESS",
+    };
+  }
+  function failure(error) {
+    return {
+      type: "LOGIN_ERROR",
+      error,
     };
   }
 }

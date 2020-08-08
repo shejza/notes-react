@@ -88,20 +88,11 @@ export default function Cards({ notes }) {
             <CSVLink
               className="btn btn--primary"
               data={[
-                {
-                  date: Moment(note.date).format("DD.MM.YYYY"),
-                  totaltime: note.total_time,
-                  title: note.title,
-                  description: note.descriptions.map(
-                    (desc) => desc.description
-                  ),
-                },
-              ]}
-              headers={[
-                { label: "Date", key: "date" },
-                { label: "Total Time", key: "totaltime" },
-                { label: "Title", key: "title" },
-                { label: "Description", key: "description" },
+                ["Date:", Moment(note.date).format("DD.MM.YYYY"), ""],
+                ["Total time:", note.total_time, ""],
+                ["Notes:", note.title, ""],
+
+                [" ", note.descriptions.map((desc) => desc.description)],
               ]}
             >
               Export CSV

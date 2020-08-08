@@ -1,7 +1,5 @@
 ## Notes Frontend - React
 
-[Find Live Demo Here](https://pizzayummyy.herokuapp.com/)
-
 ### Description
 
 This is a simple task/time management.
